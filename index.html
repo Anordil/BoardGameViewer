@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html ng-app="app">
+<head>
+	<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/src/service/mongolab.service.js"></script>
+    <script src="/src/service/myth.service.js"></script>
+    <script src="/src/controller/myth.ctrl.js"></script>
+    <script src="/src/directive/game-list-element.js"></script>
+    <script src="/src/directive/game-list-element.tpl.html"></script>
+    <script>
+        angular.module("app", ["common.mongolab", "http_rest_myth", "directives"])
+			.constant("MONGOLAB_CONFIG", {
+				"API_KEY": "m0lpQ0AtgHyiKNl1sIhYS7aYXdXDetVU",
+				"DB_NAME": "board-game-viewer"
+			});
+    </script>
+    
+</head>
+  <body ng-controller = "MythCtrl as ctrl">
+	<table class="table table-bordered">
+		<thead>
+			<th>Name</th>
+			<th></th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="data in ctrl.allGames">
+				<td>
+					<game-list-element data="data"></game-list-element>
+				</td>
+				<td>
+					<span ng-click="ctrl.remove(data)" title="Delete" class="glyphicon glyphicon-trash"></span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<button ng-click="ctrl.createNewGame()" class="btn btn-primary">New</button>
+  </body>
+</html>
