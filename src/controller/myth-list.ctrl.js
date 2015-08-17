@@ -1,10 +1,11 @@
 angular.module("http_rest_myth")
 
-  .controller("MythCtrl", ["MythGameData", function(MythGameData) {
+  .controller("MythListCtrl", ["MythGameData", "$location", "allGames", function(MythGameData, $location, allGames) {
 
     var self = this;
 
-    this.allGames = [];
+    this.allGames = allGames;
+    this.currentGame = null;
 
     function refreshVideoList() {
       MythGameData.all().then(function(games) {
@@ -12,25 +13,29 @@ angular.module("http_rest_myth")
       });
     }
     
+    this.edit = function (game) {
+    	$location.path("/myth-games/edit/" + game.$id());
+    };
+    
     this.createNewGame = function() {
     	var aGame = new MythGameData();
     	aGame.name = "New Myth game";
     	aGame.creationTime = new Date();
     	aGame.lastUpdateTime = new Date();
-    	aGame.data = {};
+    	aGame.data = {
+    			player: {
+    				currentHP: 12,
+    				maxHP: 16
+    			}
+    	};
     	
     	aGame.$save().then(refreshVideoList,
     			           function(error) {alert("Save failed : "); console.dir(error)});
     	return aGame;
     };
 
-    this.save = function () {
-    	MythGameData.save(this.video).then(refreshVideoList).then(this.clear.bind(this));
-    };
-
     this.remove = function (game) {
     	game.$remove().then(refreshVideoList);
     };
 
-    refreshVideoList();
   }]);

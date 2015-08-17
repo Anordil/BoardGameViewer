@@ -1,0 +1,19 @@
+<div class="well">
+	<table class="table table-striped">
+		<thead>
+			<th>Name</th>
+			<th></th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="data in ctrl.allGames">
+				<td><game-list-element data="data"></game-list-element></td>
+				<td>
+					<span ng-click="ctrl.remove(data)" title="Delete" class="glyphicon glyphicon-trash"></span>
+					<span ng-click="ctrl.edit(data)" title="Edit" class="glyphicon glyphicon-edit"></span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<button ng-click="ctrl.createNewGame()" class="btn btn-primary">New</button>
+</div>
