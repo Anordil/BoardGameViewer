@@ -1,6 +1,6 @@
 angular.module("http_rest_myth")
 
-  .controller("MythGameCtrl", ["MythGameData", "$location", "currentGame", function(MythGameData, $location, currentGame) {
+  .controller("MythGameCtrl", ["MythGameData", "$location", "currentGame", "SOCKET", function(MythGameData, $location, currentGame, SOCKET) {
 
     var self = this;
 

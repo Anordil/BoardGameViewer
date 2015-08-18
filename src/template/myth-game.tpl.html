@@ -4,12 +4,10 @@
 		<h1 class="col-md-8">{{ctrl.currentGame.name}}</h1>
 		<input class="col-md-4" ng-model="ctrl.currentGame.name"></input>
 	</div>
-	
-	<life-counter min="1" max="ctrl.currentGame.data.player.maxHP" 
-	              current="ctrl.currentGame.data.player.currentHP">
-	</life-counter>
-	
-	
+
+	<life-counter max="ctrl.currentGame.data.player.maxHP" current="ctrl.currentGame.data.player.currentHP"> </life-counter>
+  <threat-counter current="ctrl.currentGame.data.player.threat" ></threat-counter>
+
 	<div class="row">
 		<button ng-click="ctrl.save()" class="btn btn-primary">Save</button>
 	</div>

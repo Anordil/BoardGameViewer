@@ -1,16 +1,16 @@
 <div class="row">
 	<span ng-click="setCurrentValue(0)"> <img
-		src="../../img/dead.jpg" width="18px" class="img-rounded" />
+		src="../../img/threat-zero.jpg" width="18px" />
 	</span>
 	<span ng-repeat="point in getArray()">
 		<span ng-switch="current >= point" ng-click="setCurrentValue(point)">
 			<span ng-switch-when="true">
-				<img src="../../img/life.jpg" width="18px" class="img-rounded" />
+				<img src="../../img/threat.jpg" width="18px" class="img-rounded" />
 			</span>
 			<span ng-switch-when="false">
-				<img src="../../img/life-empty.jpg" width="18px" class="img-rounded" />
+				<img src="../../img/threat-empty.jpg" width="18px" class="img-rounded" />
 			</span>
 		</span>
 	</span>
-	({{current}}/{{max}})
+	Threat: {{current}}
 </div>

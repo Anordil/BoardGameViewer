@@ -79,10 +79,23 @@ gulp.task("play", ["livereload"], function() {
         .use(serveStatic(__dirname))
         .use(serveIndex(__dirname));
 
-    http.createServer(app).listen(port, function() {
+    var server = http.createServer(app).listen(port, function() {
         gutil.log("Local web server started at http://localhost:" + port);
         open("http://localhost:" + port, "chrome");
     });
+    
+    var io = require('socket.io').listen(server);
+    io.sockets.on('connection', function (socket) {
+    	gutil.log("Client connected.");
+    	
+      socket.on('event', function (message) {
+      	gutil.log("Broadcasting " + message);
+      	socket.broadcast.emit(message.type, message);
+      });
+    });
+    
+    
+    server.listen(9001);
 });
 
 //slide:start:karma;
