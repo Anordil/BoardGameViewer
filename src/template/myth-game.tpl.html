@@ -5,9 +5,18 @@
 		<input class="col-md-4" ng-model="ctrl.currentGame.name"></input>
 	</div>
 
-	<life-counter max="ctrl.currentGame.data.player.maxHP" current="ctrl.currentGame.data.player.currentHP"> </life-counter>
+	<life-counter max="ctrl.currentGame.data.player.maxHP" current="ctrl.currentGame.data.player.currentHP" id="'player'"> </life-counter>
   <threat-counter current="ctrl.currentGame.data.player.threat" ></threat-counter>
 
+
+  <br/><br/>
+	<div class="row">
+		<span ng-repeat="monster in ctrl.currentGame.data.monsterCounters" class="col-md-2">
+			<life-counter max="monster.maxHP" current="monster.currentHP" id="'monster' + ($index +1)"></life-counter>
+		</span>
+	</div>
+
+<br/>
 	<div class="row">
 		<button ng-click="ctrl.save()" class="btn btn-primary">Save</button>
 	</div>

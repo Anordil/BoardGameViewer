@@ -26,7 +26,8 @@ angular.module("http_rest_myth")
     			player: {
     				currentHP: 12,
     				maxHP: 16
-    			}
+    			},
+    			monsterCounters: [{currentHP: 4, maxHP: 4}, {currentHP: 4, maxHP: 4}, {currentHP: 4, maxHP: 4}]
     	};
     	
     	aGame.$save().then(refreshVideoList,

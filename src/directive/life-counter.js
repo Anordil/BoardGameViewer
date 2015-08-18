@@ -6,7 +6,8 @@ angular.module("directives")
 		templateUrl: "/src/directive/life-counter.tpl.html",
 		scope: {
 			max: "=max",
-			current: "=current"
+			current: "=current",
+			id: "=id"
 		},
 		link: function ($scope) {
 
@@ -19,19 +20,23 @@ angular.module("directives")
 			};
 
 			$scope.setCurrentValue = function (value) {
+				console.log("This is " + $scope.id);
 				$scope.current = value;
 				
 				SOCKET.emit('event', 
 						{
-							type: "player_life_update",
-							value: value
+							type: "life_update",
+							value: value,
+							id: $scope.id
 						});
 			};
 			
 			
-			SOCKET.on('player_life_update', function (message) {
-				$scope.current = message.value;
-				$scope.$apply();
+			SOCKET.on('life_update', function (message) {
+				if ($scope.id == message.id) {
+					$scope.current = message.value;
+					$scope.$apply();
+				}
 			});
 		}
 	}
