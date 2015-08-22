@@ -19,4 +19,12 @@ angular.module("http_rest_myth")
     	return this.currentGame.data.player.maxHP;
     };
     
+    
+    this.startEdit = function() {
+    	this.currentGame.edit = true;
+    };
+    this.stopEdit = function() {
+    	this.currentGame.edit = false;
+    };
+    
   }]);

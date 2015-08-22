@@ -1,14 +1,14 @@
 <div class="row">
 	<span ng-click="setCurrentValue(0)"> <img
-		src="../../img/threat-zero.jpg" width="18px" />
+		src="../../img/herosheet/threat-zero.png" width="20px" />
 	</span>
 	<span ng-repeat="point in getArray()">
 		<span ng-switch="current >= point" ng-click="setCurrentValue(point)">
 			<span ng-switch-when="true">
-				<img src="../../img/threat.jpg" width="18px" class="img-rounded" />
+				<img src="../../img/herosheet/threat.png" width="20px" tooltip="{{point}}" />
 			</span>
 			<span ng-switch-when="false">
-				<img src="../../img/threat-empty.jpg" width="18px" class="img-rounded" />
+				<img src="../../img/herosheet/threat-empty.png" width="20px" tooltip="{{point}}" />
 			</span>
 		</span>
 	</span>

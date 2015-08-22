@@ -6,6 +6,7 @@
 	 <script src="/socket.io/socket.io.js"></script>
     <script src="/node_modules/angular/angular.js"></script>
     <script src="/node_modules/angular-route/angular-route.js"></script>
+    <script src="/node_modules/angular-bootstrap/ui-bootstrap-tpls-0.13.3.min.js"></script>
     <script src="/src/service/mongolab.service.js"></script>
     <script src="/src/service/myth.service.js"></script>
     <script src="/src/controller/myth-list.ctrl.js"></script>
@@ -23,7 +24,8 @@
         angular.module("app", ["common.mongolab", 
                                "http_rest_myth", 
                                "directives",
-                               "ngRoute"])
+                               "ngRoute",
+                               "ui.bootstrap"])
 			.constant("MONGOLAB_CONFIG", {
 				"API_KEY": "m0lpQ0AtgHyiKNl1sIhYS7aYXdXDetVU",
 				"DB_NAME": "board-game-viewer"

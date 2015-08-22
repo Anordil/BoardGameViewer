@@ -1,4 +1,4 @@
-angular.module("directives", [])
+angular.module("directives", ['ui.bootstrap'])
   .directive("gameListElement", [function() {
 
 	  return {

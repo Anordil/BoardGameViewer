@@ -1,8 +1,8 @@
 <div class="well container-fluid">
 
 	<div class="row">
-		<h1 class="col-md-8">{{ctrl.currentGame.name}}</h1>
-		<input class="col-md-4" ng-model="ctrl.currentGame.name"></input>
+		<h1 ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()" class="col-md-8">{{ctrl.currentGame.name}}</h1>
+		<input ng-show="ctrl.currentGame.edit" ng-blur="ctrl.stopEdit()" class="col-md-8" ng-model="ctrl.currentGame.name"></input>
 	</div>
 
 	<life-counter max="ctrl.currentGame.data.player.maxHP" current="ctrl.currentGame.data.player.currentHP" id="'player'"> </life-counter>
