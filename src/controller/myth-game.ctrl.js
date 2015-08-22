@@ -5,6 +5,7 @@ angular.module("http_rest_myth")
     var self = this;
 
     this.currentGame = currentGame;
+    console.dir(this.currentGame);
 
     
     this.save = function () {
@@ -18,6 +19,18 @@ angular.module("http_rest_myth")
     this.getPlayerMaxLife = function() {
     	return this.currentGame.data.player.maxHP;
     };
+    
+    this.removeMonsterCounter = function(index) {
+    	this.currentGame.data.monsterCounters.splice(index, 1);
+    };
+    this.addMonsterCounter = function() {
+    	this.currentGame.data.monsterCounters.push(
+    	  {
+    		  currentHP: 4, 
+    		  maxHP: 4,
+    		  name: "New"
+		});
+    }
     
     
     this.startEdit = function() {

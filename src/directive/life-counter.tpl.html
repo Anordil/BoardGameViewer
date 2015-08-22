@@ -1,4 +1,7 @@
-<div class="row">
+<span>
+	<span ng-hide="edit || !hasname" ng-dblclick="startEdit()" class="after5">{{name}}</span>
+	<input ng-show="edit && hasname" ng-blur="stopEdit()" ng-model="name"></input>
+	
 	<span ng-click="setCurrentValue(0)"> <img
 		src="../../img/herosheet/dead.png" width="20px" class="img-rounded" />
 	</span>
@@ -12,5 +15,7 @@
 			</span>
 		</span>
 	</span>
-	({{current}}/{{max}})
-</div>
+	({{current}}/
+	<span ng-hide="edit" ng-dblclick="startEdit()">{{max}})</span>
+	<input ng-show="edit" ng-blur="stopEdit()" ng-model="max"></input>
+</span>

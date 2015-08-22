@@ -24,8 +24,11 @@ angular.module("http_rest_myth")
     	aGame.lastUpdateTime = new Date();
     	aGame.data = {
     			player: {
-    				currentHP: 12,
-    				maxHP: 16
+    				name: "Hero's name",
+    				move: 4,
+    				courage: 6,
+    				currentHP: 10,
+    				maxHP: 10
     			},
     			monsterCounters: [{currentHP: 4, maxHP: 4}, {currentHP: 4, maxHP: 4}, {currentHP: 4, maxHP: 4}]
     	};

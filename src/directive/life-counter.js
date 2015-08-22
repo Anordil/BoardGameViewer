@@ -7,10 +7,12 @@ angular.module("directives")
 		scope: {
 			max: "=max",
 			current: "=current",
-			id: "=id"
+			id: "=id",
+			hasname: "=hasname",
+			name: "=name"
 		},
 		link: function ($scope) {
-
+			
 			$scope.getArray = function() {
 				var array = [];
 				for (var i = 1; i <= $scope.max; i++) {
@@ -31,6 +33,12 @@ angular.module("directives")
 						});
 			};
 			
+			$scope.startEdit = function() {
+				$scope.edit = true;
+		    };
+		    $scope.stopEdit = function() {
+		    	$scope.edit = false;
+		    };
 			
 			SOCKET.on('life_update', function (message) {
 				if ($scope.id == message.id) {
