@@ -21,31 +21,38 @@ angular.module("directives")
 				if (!$scope.value) {
 					$scope.value = "empty.png";
 				}
-				console.log("Item: " + $scope.value);
 				return "../../img/inventory/" + $scope.type + "/" + $scope.value;
 			};
 			
 			$scope.getArray = function() {
 				return $scope.list[$scope.type];
 			};
+			
+	     $scope.toFileName = function(imgName) {
+	        imgName = imgName.replace(/ /g, "-");
+	        return imgName[0].toLowerCase() + imgName.substring(1, imgName.length) + ".png";
+	      };
 
 			$scope.setCurrentValue = function (value) {
+			  
+			  value = $scope.toFileName(value);
+			  console.log(value);
 			  $scope.value = value;
 				SOCKET.emit('event', 
 						{
 							type: "item_update",
 							value: value,
-							type: $scope.type
+							itemType: $scope.type
 						});
 			};
 			
-			
 			SOCKET.on('item_update', function (message) {
-				if ($scope.type == message.type) {
+				if ($scope.type == message.itemType) {
 					$scope.value = message.value;
 					$scope.$apply();
 				}
 			});
+			
 		}
 	}
 }]);

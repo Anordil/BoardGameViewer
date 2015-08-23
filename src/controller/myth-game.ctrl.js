@@ -7,6 +7,8 @@ angular.module("http_rest_myth")
 
     this.currentGame = currentGame;
     
+    console.dir(currentGame);
+    
     this.save = function () {
     	this.currentGame.lastUpdateTime = new Date();
     	MythGameData.save(this.currentGame);
