@@ -1,12 +1,11 @@
 angular.module("http_rest_myth")
 
-  .controller("MythGameCtrl", ["MythGameData", "$location", "currentGame", "SOCKET", function(MythGameData, $location, currentGame, SOCKET) {
+  .controller("MythGameCtrl", ["MythGameData", "$location", "currentGame", "SOCKET", "$http", "$scope", function(MythGameData, $location, currentGame, SOCKET, $http, $scope) {
 
     var self = this;
+    this.itemList = {};
 
     this.currentGame = currentGame;
-    console.dir(this.currentGame);
-
     
     this.save = function () {
     	this.currentGame.lastUpdateTime = new Date();
@@ -29,7 +28,7 @@ angular.module("http_rest_myth")
     		  currentHP: 4, 
     		  maxHP: 4,
     		  name: "New"
-		});
+    	  });
     }
     
     
@@ -39,5 +38,17 @@ angular.module("http_rest_myth")
     this.stopEdit = function() {
     	this.currentGame.edit = false;
     };
+    
+    this.fetchItemList = function() {
+      SOCKET.emit('getItems', {});
+    };
+    
+    SOCKET.on('itemList', function (message) {
+      self.itemList = message;
+      $scope.$apply();
+    });
+    
+    
+    this.fetchItemList();
     
   }]);

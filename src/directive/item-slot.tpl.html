@@ -1,0 +1,7 @@
+<div style="text-align:center;" >
+	<img src="{{getImage()}}" height="275px" />
+	<br />
+	<select ng-change="setCurrentValue(value)" ng-model="value" style="width:170px;">
+		<option ng-repeat="item in getArray()" value="{{item}}" >{{item | itemName}}</option>
+	</select>
+</div>

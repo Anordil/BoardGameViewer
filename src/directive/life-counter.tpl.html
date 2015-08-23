@@ -1,21 +1,22 @@
 <span>
-	<span ng-hide="edit || !hasname" ng-dblclick="startEdit()" class="after5">{{name}}</span>
+	<div ng-hide="edit || !hasname" ng-dblclick="startEdit()" >{{name}}</div>
 	<input ng-show="edit && hasname" ng-blur="stopEdit()" ng-model="name"></input>
 	
-	<span ng-click="setCurrentValue(0)"> <img
-		src="../../img/herosheet/dead.png" width="20px" class="img-rounded" />
-	</span>
-	<span ng-repeat="point in getArray()">
-		<span ng-switch="current >= point" ng-click="setCurrentValue(point)">
-			<span ng-switch-when="true">
-				<img src="../../img/herosheet/life.png" width="20px" tooltip="{{point}}" />
-			</span>
-			<span ng-switch-when="false">
-				<img src="../../img/herosheet/life-empty.png" width="20px" tooltip="{{point}}" />
+	<div>
+		<span ng-click="setCurrentValue(0)"> <img
+			src="../../img/herosheet/dead.png" width="20px" class="img-rounded" />
+		</span>
+		<span ng-repeat="point in getArray()">
+			<span ng-switch="current >= point" ng-click="setCurrentValue(point)">
+				<span ng-switch-when="true">
+					<img src="../../img/herosheet/life.png" width="20px" tooltip="{{point}}" />
+				</span>
+				<span ng-switch-when="false">
+					<img src="../../img/herosheet/life-empty.png" width="20px" tooltip="{{point}}" />
+				</span>
 			</span>
 		</span>
-	</span>
-	({{current}}/
-	<span ng-hide="edit" ng-dblclick="startEdit()">{{max}})</span>
-	<input ng-show="edit" ng-blur="stopEdit()" ng-model="max"></input>
+		({{current}}/<span ng-hide="edit" ng-dblclick="startEdit()">{{max}})</span>
+		<input style="width:25px;" ng-show="edit" ng-blur="stopEdit()" ng-model="max"></input>
+	</div>
 </span>

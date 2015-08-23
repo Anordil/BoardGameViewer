@@ -78,10 +78,20 @@ gulp.task("play", ["livereload"], function() {
     app = connect()
         .use(serveStatic(__dirname))
         .use(serveIndex(__dirname));
+    
+    var fs = require('fs');
+    
+    var items = {
+        primary: fs.readdirSync("img/inventory/primary/"),
+        secondary: fs.readdirSync("img/inventory/secondary/"),
+        armor: fs.readdirSync("img/inventory/armor/"),
+        helm: fs.readdirSync("img/inventory/helm/"),
+        accessory: fs.readdirSync("img/inventory/accessory/"),
+    };
 
     var server = http.createServer(app).listen(port, function() {
         gutil.log("Local web server started at http://localhost:" + port);
-        open("http://localhost:" + port, "chrome");
+//        open("http://localhost:" + port, "chrome");
     });
     
     var io = require('socket.io').listen(server);
@@ -91,6 +101,11 @@ gulp.task("play", ["livereload"], function() {
       socket.on('event', function (message) {
       	gutil.log("Broadcasting " + message);
       	socket.broadcast.emit(message.type, message);
+      });
+      
+      socket.on('getItems', function (message) {
+        gutil.log("Items " + items);
+        socket.emit("itemList", items);
       });
     });
     

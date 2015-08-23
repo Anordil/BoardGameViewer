@@ -28,7 +28,15 @@ angular.module("http_rest_myth")
     				move: 4,
     				courage: 6,
     				currentHP: 10,
-    				maxHP: 10
+    				maxHP: 10,
+    				items: {
+    					inventory: [],
+    					primary : null,
+    					secondary: null,
+    					armor: null,
+    					helm: null,
+    					accessory: null
+    				}
     			},
     			monsterCounters: [{currentHP: 4, maxHP: 4}, {currentHP: 4, maxHP: 4}, {currentHP: 4, maxHP: 4}]
     	};
