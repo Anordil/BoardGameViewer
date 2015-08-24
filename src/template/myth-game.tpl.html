@@ -61,7 +61,12 @@
 			
 			<!-- Dice roller -->
 	    <div class="row top7">
-	      <dice-roller dice="ctrl.currentGame.dice"></dice-roller>
+	     <div class="col-md-6">
+	       <dice-roller dice="ctrl.currentGame.dice[0]" id="0"></dice-roller>
+	      </div>
+	      <div class="col-md-6">
+	       <dice-roller dice="ctrl.currentGame.dice[1]" id="1"></dice-roller>
+	      </div>
 	    </div>
 			
 		</div>

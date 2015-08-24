@@ -5,7 +5,8 @@ angular.module("directives")
 		restrict: "E",
 		templateUrl: "/src/directive/dice-roller.tpl.html",
 		scope: {
-			dice: "=dice"
+			dice: "=dice",
+			id: "=id"
 		},
 		link: function ($scope) {
 			
@@ -48,6 +49,7 @@ angular.module("directives")
 				SOCKET.emit('event', 
 					{
 						type: "dice_results",
+						id: $scope.id,
 						resultsD10: $scope.dice.resultsD10,
 						resultsFate: $scope.dice.resultsFate
 					});
@@ -63,6 +65,7 @@ angular.module("directives")
       	SOCKET.emit('event', 
     			{
 	      		type: "dice_count",
+	      		id: $scope.id,
 	      		d10: $scope.dice.countD10,
 	      		fd: $scope.dice.countFate
     			});
@@ -70,14 +73,18 @@ angular.module("directives")
 			
 			
 			SOCKET.on('dice_count', function (message) {
-				$scope.dice.countD10 = message.d10;
-				$scope.dice.countFate = message.fd;
-				$scope.$apply();
+				if (message.id == $scope.id) {
+					$scope.dice.countD10 = message.d10;
+					$scope.dice.countFate = message.fd;
+					$scope.$apply();					
+				}
 			});
 			SOCKET.on('dice_results', function (message) {
-				$scope.dice.resultsD10 = message.resultsD10;
-				$scope.dice.resultsFate = message.resultsFate;
-				$scope.$apply();
+				if (message.id == $scope.id) {
+					$scope.dice.resultsD10 = message.resultsD10;
+					$scope.dice.resultsFate = message.resultsFate;
+					$scope.$apply();
+				}
 			});
 			
 		}
