@@ -40,6 +40,13 @@ angular.module("http_rest_myth")
     			},
     			monsterCounters: [{currentHP: 4, maxHP: 4}, {currentHP: 4, maxHP: 4}, {currentHP: 4, maxHP: 4}]
     	};
+    	aGame.dice = {
+    			countD10: 0,
+    			countFate: 0,
+    			resultsD10: [],
+    			resultsFate: [],
+    			edit: false
+    	}
     	
     	aGame.$save().then(refreshVideoList,
     			           function(error) {alert("Save failed : "); console.dir(error)});

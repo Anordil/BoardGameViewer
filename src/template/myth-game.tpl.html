@@ -16,8 +16,8 @@
 				ng-model="ctrl.currentGame.data.player.name"></input>
 
 			<div class="row">
-				<div class = "col-md-2">
-					<span class="before5"> 
+				<div class = "col-md-1">
+					<span > 
 						<img src="../../img/herosheet/move.png" width="20px" tooltip="Movement speed" /> 
 						<span ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.move}} </span> 
 						<input style="width:15px;" ng-show="ctrl.currentGame.edit" ng-blur="ctrl.stopEdit()" ng-model="ctrl.currentGame.data.player.move"> </input>
@@ -28,7 +28,7 @@
 						<input style="width:15px;" ng-show="ctrl.currentGame.edit" ng-blur="ctrl.stopEdit()" ng-model="ctrl.currentGame.data.player.courage"></input>
 					</span> 
 				</div>
-				<div class = "col-md-5">
+				<div class = "col-md-6">
 					<life-counter class="after20"
 					max="ctrl.currentGame.data.player.maxHP"
 					current="ctrl.currentGame.data.player.currentHP" id="'player'"
@@ -41,7 +41,7 @@
 				
 
 
-			<div class="row top7">
+		  <div class="row top7">
 				<item-slot type="primary" list="ctrl.itemList"
 					value="ctrl.currentGame.data.player.items.primary" class="col-md-2">
 				</item-slot>
@@ -58,6 +58,12 @@
 					value="ctrl.currentGame.data.player.items.accessory"
 					class="col-md-2"> </item-slot>
 			</div>
+			
+			<!-- Dice roller -->
+	    <div class="row top7">
+	      <dice-roller dice="ctrl.currentGame.dice"></dice-roller>
+	    </div>
+			
 		</div>
 		
 		
