@@ -4,7 +4,7 @@
 <head>
 	<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" />
 	<link rel="stylesheet" href="/src/template/bgv.css" />
-	 <script src="/socket.io/socket.io.js"></script>
+	 <script src="/node_modules/socket.io/node_modules/socket.io-client/dist/socket.io.js"></script>
     <script src="/node_modules/angular/angular.js"></script>
     <script src="/node_modules/angular-route/angular-route.js"></script>
     <script src="/node_modules/angular-bootstrap/ui-bootstrap-tpls-0.13.3.min.js"></script>
@@ -22,7 +22,7 @@
     <script src="/src/directive/item-slot.tpl.html"></script>
     <script>
     
-        var socket = io.connect('http://localhost:9001');
+        var socket = io.connect();
         
         angular.module("app", ["common.mongolab", 
                                "http_rest_myth", 
