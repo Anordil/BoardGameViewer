@@ -35,14 +35,28 @@ angular.module("directives")
 			
 			$scope.startEdit = function() {
 				$scope.edit = true;
-		    };
-		    $scope.stopEdit = function() {
-		    	$scope.edit = false;
-		    };
+		  };
+	    $scope.stopEdit = function() {
+	    	$scope.edit = false;
+	    	// Propagate the new max value
+	    	console.log("New max is " + $scope.max);
+				SOCKET.emit('event', 
+					{
+						type: "life_update_max",
+						value: $scope.max,
+						id: $scope.id
+					});
+	    };
 			
 			SOCKET.on('life_update', function (message) {
 				if ($scope.id == message.id) {
 					$scope.current = message.value;
+					$scope.$apply();
+				}
+			});
+			SOCKET.on('life_update_max', function (message) {
+				if ($scope.id == message.id) {
+					$scope.max = message.value;
 					$scope.$apply();
 				}
 			});
