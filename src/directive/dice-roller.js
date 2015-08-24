@@ -45,6 +45,8 @@ angular.module("directives")
 				for (var i = 1; i <= $scope.dice.countFate; i++) {
 					$scope.dice.resultsFate.push($scope.rollDie(6));
 				}
+				$scope.dice.resultsD10.sort();
+				$scope.dice.resultsFate.sort();
 				
 				SOCKET.emit('event', 
 					{
