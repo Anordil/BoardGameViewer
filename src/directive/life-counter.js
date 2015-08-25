@@ -7,9 +7,7 @@ angular.module("directives")
 		scope: {
 			max: "=max",
 			current: "=current",
-			id: "=id",
-			hasname: "=hasname",
-			name: "=name"
+			id: "=id"
 		},
 		link: function ($scope) {
 			

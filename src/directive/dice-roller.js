@@ -10,24 +10,27 @@ angular.module("directives")
 		},
 		link: function ($scope) {
 			
-			$scope.getFateImage = function(nb) {
-				var fate = "darkness";
+			$scope.getFateName = function(nb) {
+				var fate = "Darkness";
 				if (nb == 1) {
-					fate = "arcane";
+					fate = "Arcane";
 				}
 				else if (nb == 2) {
-					fate = "guile";
+					fate = "Guile";
 				}
 				else if (nb == 3) {
-					fate = "nature";
+					fate = "Nature";
 				}
 				else if (nb == 4) {
-					fate = "rage";
+					fate = "Rage";
 				}
 				else if (nb == 5) {
-					fate = "faith";
+					fate = "Faith";
 				}
-				return "../../img/dice/" + fate + ".jpg";
+				return fate;
+			};
+			$scope.getFateImage = function(nb) {
+				return "../../img/dice/" + $scope.getFateName(nb) + ".jpg";
 			};
 			$scope.rollDie = function(max) {
 				return (1 + Math.floor(max * Math.random()));

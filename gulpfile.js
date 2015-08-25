@@ -88,6 +88,8 @@ gulp.task("play", ["livereload"], function() {
         helm: fs.readdirSync("img/inventory/helm/"),
         accessory: fs.readdirSync("img/inventory/accessory/"),
     };
+    
+    var monsters = fs.readdirSync("img/monster/");
 
     var server = http.createServer(app).listen(port, function() {
         gutil.log("Local web server started at http://localhost:" + port);
@@ -104,8 +106,11 @@ gulp.task("play", ["livereload"], function() {
       });
       
       socket.on('getItems', function (message) {
-        gutil.log("Items " + items);
         socket.emit("itemList", items);
+      });
+      
+      socket.on('getMonsters', function (message) {
+        socket.emit("monsterList", monsters);
       });
     });
     

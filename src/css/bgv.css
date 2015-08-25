@@ -15,3 +15,16 @@
 .before10 { margin-left:10px;}
 .before15 { margin-left:15px;}
 .before20 { margin-left:20px;}
+
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+span.title {
+	font-size:35px;
+}
+span.subtitle {
+	font-size:25px;
+}

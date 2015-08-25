@@ -1,105 +1,29 @@
 <div class="well container-fluid">
 
-	<div class="row">
-		<span ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.name}}</span>
-		<input ng-show="ctrl.currentGame.edit" ng-blur="ctrl.stopEdit()"
-			ng-model="ctrl.currentGame.name"></input>
-	</div>
-
 	<!-- Hero and darkness boards -->
-	<div class="row top5">
+	<div class="row">
 	
 		<!-- Hero 66% -->
-		<div class="row col-md-7">
-			<span style="font-size:40px;" ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.name}}</span>
-			<input style="font-size:35px;" ng-show="ctrl.currentGame.edit" ng-blur="ctrl.stopEdit()"
-				ng-model="ctrl.currentGame.data.player.name"></input>
-
-			<div class="row">
-				<div class = "col-md-1">
-					<span > 
-						<img src="../../img/herosheet/move.png" width="20px" tooltip="Movement speed" /> 
-						<span ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.move}} </span> 
-						<input style="width:15px;" ng-show="ctrl.currentGame.edit" ng-blur="ctrl.stopEdit()" ng-model="ctrl.currentGame.data.player.move"> </input>
-					</span> 
-					<span> 
-						<img src="../../img/herosheet/courage.png" width="20px" tooltip="Courage" />
-						<span ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.courage}}</span>
-						<input style="width:15px;" ng-show="ctrl.currentGame.edit" ng-blur="ctrl.stopEdit()" ng-model="ctrl.currentGame.data.player.courage"></input>
-					</span> 
-				</div>
-				<div class = "col-md-6">
-					<life-counter class="after20"
-					max="ctrl.currentGame.data.player.maxHP"
-					current="ctrl.currentGame.data.player.currentHP" id="'player'"
-					hasname="false"> </life-counter>
-				</div>
-				<div class = "col-md-5">
-					<threat-counter current="ctrl.currentGame.data.player.threat"></threat-counter>
-				</div>
-			</div>
-				
-
-
-		  <div class="row top7">
-				<item-slot type="primary" list="ctrl.itemList"
-					value="ctrl.currentGame.data.player.items.primary" class="col-md-2">
-				</item-slot>
-				<item-slot type="secondary" list="ctrl.itemList"
-					value="ctrl.currentGame.data.player.items.secondary"
-					class="col-md-2"> </item-slot>
-				<item-slot type="armor" list="ctrl.itemList"
-					value="ctrl.currentGame.data.player.items.armor" class="col-md-2">
-				</item-slot>
-				<item-slot type="helm" list="ctrl.itemList"
-					value="ctrl.currentGame.data.player.items.helm" class="col-md-2">
-				</item-slot>
-				<item-slot type="accessory" list="ctrl.itemList"
-					value="ctrl.currentGame.data.player.items.accessory"
-					class="col-md-2"> </item-slot>
-			</div>
-			
-			<!-- Dice roller -->
-	    <div class="row top7">
-	     <div class="col-md-6">
-	       <dice-roller dice="ctrl.currentGame.dice[0]" id="0"></dice-roller>
-	      </div>
-	      <div class="col-md-6">
-	       <dice-roller dice="ctrl.currentGame.dice[1]" id="1"></dice-roller>
-	      </div>
-	    </div>
-			
+		<div class="row col-md-7" ng-include="'src/template/hero-board.tpl.html'">
 		</div>
 		
 		
 		<!-- Darkness 33% -->
-		<div class="row col-md-5">
-			<h1>Darkness</h1>
+		<div class="row col-md-5" ng-include="'src/template/darkness-board.tpl.html'">
 		</div>
 	</div>
 
 
 
-	<div class="row top30">
-		<h1>Monsters</h1>
-	</div>
-	<div class="row top5">
-		<button ng-click="ctrl.addMonsterCounter()" class="btn btn-default">New
-			counter</button>
-	</div>
-	<div class="row">
-		<div ng-repeat="monster in ctrl.currentGame.data.monsterCounters"
-			class="col-md-3">
-			<life-counter max="monster.maxHP" current="monster.currentHP"
-				id="'monster' + ($index +1)" hasname="true" name="monster.name"></life-counter>
-			<button ng-click="ctrl.removeMonsterCounter($index)"
-				class="btn btn-danger">X</button>
-		</div>
+	<div class="row top30" ng-include="'src/template/monsters-board.tpl.html'">
 	</div>
 
 	<div class="row top30">
 		<button ng-click="ctrl.save()" class="btn btn-primary">Save</button>
+		<span ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.name}}</span>
+    <input ng-show="ctrl.currentGame.edit" ng-blur="ctrl.stopEdit()" ng-model="ctrl.currentGame.name"></input>
 	</div>
+	
 
 </div>
 

@@ -1,11 +1,11 @@
-<div style="text-align:center; position:relative; z-index:5;" ng-mouseenter="show()" ng-mouseleave="hide()" >
-	<img src="{{getImage()}}" height="200px" />
+<div style="text-align:center; position:relative; z-index:5;" >
+	<img src="{{getImage()}}" height="200px" ng-mouseenter="show()" ng-mouseleave="hide()"/>
 	<br />
 	<select ng-change="setCurrentValue(value)" ng-model="value" style="width:130px;">
 		<option ng-repeat="item in getArray()" >{{item | itemName}}</option>
 	</select>
 </div>
 
-<div ng-show="showBig" style="text-align:center; position:fixed; z-index:10; top:250px; left:350px;" >
+<div ng-show="showBig && value != 'empty.png'" style="text-align:center; position:fixed; z-index:10; top:250px; left:350px;" >
   <img src="{{getImage()}}" height="500px" />
 </div>

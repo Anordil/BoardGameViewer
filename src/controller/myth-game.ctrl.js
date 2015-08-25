@@ -1,9 +1,18 @@
 angular.module("http_rest_myth")
 
+	.filter("toMonsterImage", function() {
+    return function(input) {
+    	console.log(input);
+    	input = input.replace(/ /g, "-");
+      return "../../img/monster/" + input[0].toLowerCase() + input.substring(1, input.length) + ".jpg";
+    };
+	})
+
   .controller("MythGameCtrl", ["MythGameData", "$location", "currentGame", "SOCKET", "$http", "$scope", function(MythGameData, $location, currentGame, SOCKET, $http, $scope) {
 
     var self = this;
     this.itemList = {};
+    this.monsterList = [];
 
     this.currentGame = currentGame;
     
@@ -29,7 +38,8 @@ angular.module("http_rest_myth")
     	  {
     		  currentHP: 4, 
     		  maxHP: 4,
-    		  name: "New"
+    		  name: "New",
+    		  type: "Unknown"
     	  });
     }
     
@@ -44,13 +54,22 @@ angular.module("http_rest_myth")
     this.fetchItemList = function() {
       SOCKET.emit('getItems', {});
     };
+    this.fetchMonsterList = function() {
+    	SOCKET.emit('getMonsters', {});
+    };
     
     SOCKET.on('itemList', function (message) {
       self.itemList = message;
       $scope.$apply();
     });
+    SOCKET.on('monsterList', function (message) {
+      self.monsterList = message;
+      self.monsterList.push("Unknown.jpg");
+      $scope.$apply();
+    });
     
     
     this.fetchItemList();
+    this.fetchMonsterList();
     
   }]);

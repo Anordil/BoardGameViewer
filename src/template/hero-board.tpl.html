@@ -1,0 +1,65 @@
+<div class="row col-md-12 vertical-align">
+	<div class="col-md-6">
+	<span class="title" ng-hide="ctrl.currentGame.edit"
+		ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.name}}</span>
+	<input style="font-size: 35px;" ng-show="ctrl.currentGame.edit"
+		ng-blur="ctrl.stopEdit()" ng-model="ctrl.currentGame.data.player.name"></input>
+  </div>
+  <div class="col-md-3">
+    <span> <img src="../../img/herosheet/move.png" width="20px"
+      tooltip="Movement speed" /> <span ng-hide="ctrl.currentGame.edit"
+      ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.move}}
+    </span> <input style="width: 15px;" ng-show="ctrl.currentGame.edit"
+      ng-blur="ctrl.stopEdit()"
+      ng-model="ctrl.currentGame.data.player.move"> </input>
+    </span> <span> <img src="../../img/herosheet/courage.png" width="20px"
+      tooltip="Courage" /> <span ng-hide="ctrl.currentGame.edit"
+      ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.courage}}</span>
+      <input style="width: 15px;" ng-show="ctrl.currentGame.edit"
+      ng-blur="ctrl.stopEdit()"
+      ng-model="ctrl.currentGame.data.player.courage"></input>
+    </span>
+  </div>
+</div>
+
+
+<div class="row col-md-12">
+	<div class="col-md-6">
+		<life-counter class="after20" max="ctrl.currentGame.data.player.maxHP"
+			current="ctrl.currentGame.data.player.currentHP" id="'player'"
+			hasname="false"> </life-counter>
+	</div>
+	<div class="col-md-6">
+		<threat-counter current="ctrl.currentGame.data.player.threat"></threat-counter>
+	</div>
+</div>
+
+
+
+<div class="row top7">
+	<item-slot type="primary" list="ctrl.itemList"
+		value="ctrl.currentGame.data.player.items.primary" class="col-md-2">
+	</item-slot>
+	<item-slot type="secondary" list="ctrl.itemList"
+		value="ctrl.currentGame.data.player.items.secondary" class="col-md-2">
+	</item-slot>
+	<item-slot type="armor" list="ctrl.itemList"
+		value="ctrl.currentGame.data.player.items.armor" class="col-md-2">
+	</item-slot>
+	<item-slot type="helm" list="ctrl.itemList"
+		value="ctrl.currentGame.data.player.items.helm" class="col-md-2">
+	</item-slot>
+	<item-slot type="accessory" list="ctrl.itemList"
+		value="ctrl.currentGame.data.player.items.accessory" class="col-md-2">
+	</item-slot>
+</div>
+
+<!-- Dice roller -->
+<div class="row top7">
+	<div class="col-md-6">
+		<dice-roller dice="ctrl.currentGame.dice[0]" id="0"></dice-roller>
+	</div>
+	<div class="col-md-6">
+		<dice-roller dice="ctrl.currentGame.dice[1]" id="1"></dice-roller>
+	</div>
+</div>

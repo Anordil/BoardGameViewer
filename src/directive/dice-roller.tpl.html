@@ -10,5 +10,5 @@
   <button class="btn btn-warning" ng-click="rollDice()">Roll!</button>
 
   <label style="font-size:20px;" class="before5" ng-repeat="die in dice.resultsD10 track by $index">{{die}}</label>
-  <img src="{{getFateImage(die)}}" width="40px" ng-repeat="die in dice.resultsFate track by $index" />
+  <img src="{{getFateImage(die)}}" width="40px" ng-repeat="die in dice.resultsFate track by $index" tooltip="{{getFateName(die)}}"/>
 </div>

@@ -1,0 +1,15 @@
+<span class="vertical-align">
+	<span ng-click="setCurrentValue(0)"> 
+    <span style="font-size:20px;" width="20px">0</span>
+	</span>
+	<span ng-repeat="point in getArray()" class="before5">
+		<span ng-switch="current >= point" ng-click="setCurrentValue(point)">
+			<span ng-switch-when="true">
+				<img src="../../img/herosheet/ap.png" width="20px" tooltip="{{point}}" />
+			</span>
+			<span ng-switch-when="false">
+				<img src="../../img/herosheet/ap-empty.png" width="20px" tooltip="{{point}}" />
+			</span>
+		</span>
+	</span>
+</span>
