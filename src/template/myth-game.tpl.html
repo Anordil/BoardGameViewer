@@ -1,4 +1,4 @@
-<div class="well container-fluid">
+<div class="container-fluid">
 
 	<!-- Hero and darkness boards -->
 	<div class="row">
@@ -15,13 +15,13 @@
 
 
 
-	<div class="row top30" ng-include="'src/template/monsters-board.tpl.html'">
+	<div class="row" ng-include="'src/template/monsters-board.tpl.html'">
 	</div>
 
 	<div class="row top30">
 		<button ng-click="ctrl.save()" class="btn btn-primary">Save</button>
 		<span ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.name}}</span>
-    <input ng-show="ctrl.currentGame.edit" ng-blur="ctrl.stopEdit()" ng-model="ctrl.currentGame.name"></input>
+    	<input ng-show="ctrl.currentGame.edit" ng-blur="ctrl.stopEdit()" ng-model="ctrl.currentGame.name"></input>
 	</div>
 	
 

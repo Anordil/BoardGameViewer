@@ -49,6 +49,11 @@ angular.module("http_rest_myth")
     };
     this.stopEdit = function() {
     	this.currentGame.edit = false;
+    	
+    	SOCKET.emit('event', {
+    	  type: "update_player",
+    	  player: this.currentGame.data.player
+    	});
     };
     
     this.fetchItemList = function() {
@@ -65,6 +70,10 @@ angular.module("http_rest_myth")
     SOCKET.on('monsterList', function (message) {
       self.monsterList = message;
       self.monsterList.push("Unknown.jpg");
+      $scope.$apply();
+    });
+    SOCKET.on('update_player', function (message) {
+      self.currentGame.data.player = message.player;
       $scope.$apply();
     });
     

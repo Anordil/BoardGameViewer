@@ -1,14 +1,14 @@
 <div class="before15">
   <img src="../../img/dice/d10.png" width="40px" ng-click="startEdit()" />
-  <span style="width:25px;" ng-hide="dice.edit" ng-dblclick="startEdit()">{{dice.countD10}} </span> 
+  <span class="value" style="width:25px;" ng-hide="dice.edit" ng-dblclick="startEdit()">{{dice.countD10}} </span> 
   <input style="width:25px;" ng-show="dice.edit" ng-blur="stopEdit()" ng-model="dice.countD10"> </input>
 
   <img src="../../img/dice/fd.png" width="40px" ng-click="startEdit()" />
-  <span style="width:25px;" ng-hide="dice.edit" ng-dblclick="startEdit()">{{dice.countFate}} </span> 
+  <span class="value" style="width:25px;" ng-hide="dice.edit" ng-dblclick="startEdit()">{{dice.countFate}} </span> 
   <input style="width:25px;" ng-show="dice.edit" ng-blur="stopEdit()" ng-model="dice.countFate"> </input>
   
   <button class="btn btn-warning" ng-click="rollDice()">Roll!</button>
 
-  <label style="font-size:20px;" class="before5" ng-repeat="die in dice.resultsD10 track by $index">{{die}}</label>
+  <label class="value before5" ng-repeat="die in dice.resultsD10 track by $index">{{die}}</label>
   <img src="{{getFateImage(die)}}" width="40px" ng-repeat="die in dice.resultsFate track by $index" tooltip="{{getFateName(die)}}"/>
 </div>

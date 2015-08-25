@@ -22,9 +22,12 @@
     align-items: center;
 }
 
-span.title {
+.title {
 	font-size:35px;
 }
-span.subtitle {
+.subtitle {
 	font-size:25px;
+}
+.value {
+	font-size: 20px;
 }
