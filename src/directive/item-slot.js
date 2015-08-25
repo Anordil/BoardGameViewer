@@ -17,6 +17,15 @@ angular.module("directives")
 		},
 		link: function ($scope) {
 			
+			$scope.showBig = false;
+			
+			$scope.hide = function() {
+				$scope.showBig = false;
+			};
+			$scope.show = function() {
+				$scope.showBig = true;
+			};
+			
 			$scope.getImage = function() {
 				if (!$scope.value) {
 					$scope.value = "empty.png";
