@@ -45,11 +45,11 @@ angular.module("http_rest_myth")
     					accessory: null
     				},
     				statusEffects: {
-    					poison: false,
+    					poison: 0,
     					cursed: 0,
     					frozen: 0,
     					capture: 0,
-    					prone: false
+    					prone: 0
     				}
     			},
     			monsterCounters: []

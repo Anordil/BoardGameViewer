@@ -13,6 +13,11 @@ angular.module("http_rest_myth")
     var self = this;
     this.itemList = {};
     this.monsterList = [];
+    
+    this.addElement = {
+    		potions: false,
+    		status: false
+    }
 
     this.currentGame = currentGame;
     
@@ -54,6 +59,85 @@ angular.module("http_rest_myth")
     	  type: "update_player",
     	  player: this.currentGame.data.player
     	});
+    };
+    
+    this.addPotion = function(iType) {
+    	var nb = 0;
+    	if (this.currentGame.data.player.items.potions[iType]) {
+    		nb = this.currentGame.data.player.items.potions[iType];
+    	}
+    	this.currentGame.data.player.items.potions[iType] = (+nb +1);
+    	
+    	SOCKET.emit('event', {
+    	  type: "update_player",
+    	  player: this.currentGame.data.player
+    	});
+    };
+    
+    this.drinkPotion = function(iType) {
+    	var nb = 0;
+    	if (this.currentGame.data.player.items.potions[iType]) {
+    		nb = this.currentGame.data.player.items.potions[iType];
+    	}
+    	
+    	if (nb > 0) {
+    		this.currentGame.data.player.items.potions[iType] = nb -1;
+
+    		if (iType == 'health4') {
+    			this.healPlayer(4);
+    		}
+    		else if (iType == 'health6') {
+    			this.healPlayer(6);
+    		}
+    		else if (iType == 'antidote') {
+    			this.currentGame.data.player.statusEffects.poison = 0;
+    		}
+    		else if (iType == 'curse') {
+    			this.currentGame.data.player.statusEffects.curse = 0;
+    		}
+    		else if (iType == 'threat') {
+    			this.lowerPlayerThreat(3);
+    		}
+    	};
+    	
+    	SOCKET.emit('event', {
+    	  type: "update_player",
+    	  player: this.currentGame.data.player
+    	});
+    };
+    
+    this.addStatusEffect = function(iType) {
+    	var nb = 0;
+    	if (this.currentGame.data.player.statusEffects[iType]) {
+    		nb = this.currentGame.data.player.statusEffects[iType];
+    	}
+    	this.currentGame.data.player.statusEffects[iType] = (+nb +1);
+    	
+    	SOCKET.emit('event', {
+    	  type: "update_player",
+    	  player: this.currentGame.data.player
+    	});   	
+    };
+    
+    
+    this.healPlayer = function(amount) {
+    	this.currentGame.data.player.currentHP = Math.min(this.currentGame.data.player.maxHP, this.currentGame.data.player.currentHP + amount);
+    };
+    this.lowerPlayerThreat = function(amount) {
+    	this.currentGame.data.player.threat = Math.max(0, this.currentGame.data.player.threat -3);
+    };
+    
+    this.togglePotions = function() {
+    	this.addElement.potions = !this.addElement.potions;
+    	if (this.addElement.potions) {
+    		this.addElement.status = false;
+    	}
+    };
+    this.toggleStatus = function() {
+    	this.addElement.status = !this.addElement.status;
+    	if (this.addElement.status) {
+    		this.addElement.potions = false;
+    	}
     };
     
     this.fetchItemList = function() {
