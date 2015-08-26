@@ -39,19 +39,19 @@
 <!-- Party resources -->
 <div class="row col-md-12 top17">
 
-	<div class="col-md-1 vertical-align"> <img src="../../img/herosheet/gold.png" width="30px" ng-click="ctrl.startEdit()"
+	<div class="col-md-1 vertical-align no-padding-right"> <img src="../../img/herosheet/gold.png" width="30px" ng-click="ctrl.startEdit()"
 		tooltip="Gold" /> <span class="value before5"
 		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.gold || '0'}}</span>
 		<input style="width: 25px;" ng-show="ctrl.currentGame.edit"
 		ng-blur="ctrl.stopEdit()"
 		ng-model="ctrl.currentGame.data.player.gold"></input>
-	</div> <div class="col-md-1 vertical-align"> <img src="../../img/herosheet/serendipity.png" ng-click="ctrl.startEdit()"
+	</div> <div class="col-md-1 vertical-align no-padding-right"> <img src="../../img/herosheet/serendipity.png" ng-click="ctrl.startEdit()"
 		width="30px" tooltip="Serendipity" /> <span class="value before5"
 		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.serendipity || '0'}}</span>
 		<input style="width: 25px;" ng-show="ctrl.currentGame.edit"
 		ng-blur="ctrl.stopEdit()"
 		ng-model="ctrl.currentGame.data.player.serendipity"></input>
-	</div> <div class="col-md-1 vertical-align"> <img src="../../img/herosheet/treasure.png" ng-click="ctrl.startEdit()"
+	</div> <div class="col-md-1 vertical-align no-padding-right"> <img src="../../img/herosheet/treasure.png" ng-click="ctrl.startEdit()"
 		width="30px" tooltip="Available Treasures" /> <span class="value before5"
 		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.treasures || '0'}}</span>
 		<input style="width: 25px;" ng-show="ctrl.currentGame.edit"
@@ -61,88 +61,88 @@
 	
 	
 	<!-- Status effects -->
-	<div class="col-md-1 col-md-offset-2 vertical-align"> <img src="../../img/herosheet/poison.png" ng-click="ctrl.startEdit()"
+	<div class="col-md-1 col-md-offset-2 vertical-align no-padding-right"> <img src="../../img/herosheet/poison.png" ng-click="ctrl.startEdit()"
 		width="30px" tooltip="-1 HP/turn" /> <span class="value before5"
-		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.poison || '0'}}</span>
+		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.statusEffects.poison || '0'}}</span>
 		<input style="width: 25px;" ng-show="ctrl.currentGame.edit"
 		ng-blur="ctrl.stopEdit()"
-		ng-model="ctrl.currentGame.data.player.poison"></input>
+		ng-model="ctrl.currentGame.data.player.statusEffects.poison"></input>
 	</div>
-	<div class="col-md-1 vertical-align"> <img src="../../img/herosheet/prone.png" ng-click="ctrl.startEdit()"
+	<div class="col-md-1 vertical-align no-padding-right"> <img src="../../img/herosheet/prone.png" ng-click="ctrl.startEdit()"
 		width="30px" tooltip="Cannot act this Hero Cycle" /> <span class="value before5"
-		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.prone || '0'}}</span>
+		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.statusEffects.prone || '0'}}</span>
 		<input style="width: 25px;" ng-show="ctrl.currentGame.edit"
 		ng-blur="ctrl.stopEdit()"
-		ng-model="ctrl.currentGame.data.player.prone"></input>
+		ng-model="ctrl.currentGame.data.player.statusEffects.prone"></input>
 	</div>
-	<div class="col-md-1 vertical-align"> <img src="../../img/herosheet/cursed.png" ng-click="ctrl.startEdit()"
+	<div class="col-md-1 vertical-align no-padding-right"> <img src="../../img/herosheet/cursed.png" ng-click="ctrl.startEdit()"
 		width="30px" tooltip="Hand size reduced by X" /> <span class="value before5"
-		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.cursed || '0'}}</span>
+		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.statusEffects.cursed || '0'}}</span>
 		<input style="width: 25px;" ng-show="ctrl.currentGame.edit"
 		ng-blur="ctrl.stopEdit()"
-		ng-model="ctrl.currentGame.data.player.crused"></input>
+		ng-model="ctrl.currentGame.data.player.statusEffects.crused"></input>
 	</div>
-	<div class="col-md-1 vertical-align"> <img src="../../img/herosheet/capture.png" ng-click="ctrl.startEdit()"
+	<div class="col-md-1 vertical-align no-padding-right"> <img src="../../img/herosheet/capture.png" ng-click="ctrl.startEdit()"
 		width="30px" tooltip="Discard X cards to play" /> <span class="value before5"
-		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.capture || '0'}}</span>
+		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.statusEffects.capture || '0'}}</span>
 		<input style="width: 25px;" ng-show="ctrl.currentGame.edit"
 		ng-blur="ctrl.stopEdit()"
-		ng-model="ctrl.currentGame.data.player.capture"></input>
+		ng-model="ctrl.currentGame.data.player.statusEffects.capture"></input>
 	</div>
-	<div class="col-md-1 vertical-align"> <img src="../../img/herosheet/frozen.png" ng-click="ctrl.startEdit()"
+	<div class="col-md-1 vertical-align no-padding-right"> <img src="../../img/herosheet/frozen.png" ng-click="ctrl.startEdit()"
 		width="30px" tooltip="-X action spaces" /> <span class="value before5"
-		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.frozen || '0'}}</span>
+		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.statusEffects.frozen || '0'}}</span>
 		<input style="width: 25px;" ng-show="ctrl.currentGame.edit"
 		ng-blur="ctrl.stopEdit()"
-		ng-model="ctrl.currentGame.data.player.frozen"></input>
+		ng-model="ctrl.currentGame.data.player.statusEffects.frozen"></input>
 	</div>
 </div>
 
 
 <!-- Potions -->
 <div class="row col-md-12 top7">
-	<span class="value col-md-1">Potions</span> 
-	<div class="col-md-1  vertical-align"> <img src="../../img/inventory/health4.png" ng-click="ctrl.startEdit()"
+	<span class="value col-md-1">Potions:</span> 
+	<div class="col-md-1  vertical-align no-padding-right"> <img src="../../img/inventory/health4.png" ng-click="ctrl.startEdit()"
 		width="30px" tooltip="Heal 4HP" /> <span class="value before5"
-		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.potions.health4 || '0'}}</span>
+		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.items.potions.health4 || '0'}}</span>
 		<input style="width: 25px;" ng-show="ctrl.currentGame.edit"
 		ng-blur="ctrl.stopEdit()"
-		ng-model="ctrl.currentGame.data.player.potions.health4"></input>
+		ng-model="ctrl.currentGame.data.player.items.potions.health4"></input>
 	</div>
-	<div class="col-md-1 vertical-align"> <img src="../../img/inventory/health6.png" ng-click="ctrl.startEdit()"
+	<div class="col-md-1 vertical-align no-padding-right"> <img src="../../img/inventory/health6.png" ng-click="ctrl.startEdit()"
 		width="30px" tooltip="Heal 6HP" /> <span class="value before5"
-		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.potions.health6 || '0'}}</span>
+		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.items.potions.health6 || '0'}}</span>
 		<input style="width: 25px;" ng-show="ctrl.currentGame.edit"
 		ng-blur="ctrl.stopEdit()"
-		ng-model="ctrl.currentGame.data.player.potions.health6"></input>
+		ng-model="ctrl.currentGame.data.player.items.potions.health6"></input>
 	</div>
-	<div class="col-md-1 col-md-offset-1 vertical-align"> <img src="../../img/inventory/antidote.png" ng-click="ctrl.startEdit()"
+	<div class="col-md-1 col-md-offset-1 vertical-align no-padding-right"> <img src="../../img/inventory/antidote.png" ng-click="ctrl.startEdit()"
 		width="30px" tooltip="Cures poison" /> <span class="value before5"
-		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.potions.antidote || '0'}}</span>
+		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.items.potions.antidote || '0'}}</span>
 		<input style="width: 25px;" ng-show="ctrl.currentGame.edit"
 		ng-blur="ctrl.stopEdit()"
-		ng-model="ctrl.currentGame.data.player.potions.antidote"></input>
+		ng-model="ctrl.currentGame.data.player.items.potions.antidote"></input>
 	</div>
-	<div class="col-md-1 vertical-align"> <img src="../../img/inventory/anti-curse.png" ng-click="ctrl.startEdit()"
+	<div class="col-md-1 vertical-align no-padding-right"> <img src="../../img/inventory/anti-curse.png" ng-click="ctrl.startEdit()"
 		width="30px" tooltip="Cures Curse, hand size +1 for 1 HC" /> <span class="value before5"
-		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.potions.curse || '0'}}</span>
+		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.items.potions.curse || '0'}}</span>
 		<input style="width: 25px;" ng-show="ctrl.currentGame.edit"
 		ng-blur="ctrl.stopEdit()"
-		ng-model="ctrl.currentGame.data.player.potions.curse"></input>
+		ng-model="ctrl.currentGame.data.player.items.potions.curse"></input>
 	</div>
-	<div class="col-md-1 col-md-offset-1 vertical-align"> <img src="../../img/inventory/focus.png" ng-click="ctrl.startEdit()"
+	<div class="col-md-1 col-md-offset-1 vertical-align no-padding-right"> <img src="../../img/inventory/focus.png" ng-click="ctrl.startEdit()"
 		width="30px" tooltip="+3 FD for 1 HC" /> <span class="value before5" 
-		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.potions.focus || '0'}}</span>
+		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.items.potions.focus || '0'}}</span>
 		<input style="width: 25px;" ng-show="ctrl.currentGame.edit"
 		ng-blur="ctrl.stopEdit()"
-		ng-model="ctrl.currentGame.data.player.potions.focus"></input>
+		ng-model="ctrl.currentGame.data.player.items.potions.focus"></input>
 	</div>
-	<div class="col-md-1 vertical-align"> <img src="../../img/inventory/threat-potion.png" ng-click="ctrl.startEdit()"
+	<div class="col-md-1 vertical-align no-padding-right"> <img src="../../img/inventory/threat-potion.png" ng-click="ctrl.startEdit()"
 		width="30px" tooltip="Threat -3" /> <span class="value before5"
-		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.potions.threat || '0'}}</span>
+		ng-hide="ctrl.currentGame.edit" ng-dblclick="ctrl.startEdit()">{{ctrl.currentGame.data.player.items.potions.threat || '0'}}</span>
 		<input style="width: 25px;" ng-show="ctrl.currentGame.edit"
 		ng-blur="ctrl.stopEdit()"
-		ng-model="ctrl.currentGame.data.player.potions.threat"></input>
+		ng-model="ctrl.currentGame.data.player.items.potions.threat"></input>
 	</div>
 </div>
 

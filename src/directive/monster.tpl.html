@@ -1,13 +1,13 @@
 <span ng-click="updateDisplayedMonster()">
 
   <div class="row col-md-12 vertical-align">
-		<div class="col-md-5">
+		<div class="col-md-6" >
 		  <span class="subtitle" ng-hide="edit" ng-dblclick="startEdit()" >{{model.name}}</span>
 		  <input ng-show="edit" ng-blur="stopEdit()" ng-model="model.name"></input>
 		</div>
-		<div class="col-md-7">
+		<div class="col-md-6">
 		  <span>Type:</span>
-		  <select  ng-model="model.type" style="width:150px;">
+		  <select  ng-model="model.type" style="width:100px;">
 		    <option ng-repeat="monster in ctrl.monsterList" >{{monster | itemName}}</option>
 		  </select>
 		</div>

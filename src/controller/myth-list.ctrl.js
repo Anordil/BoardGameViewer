@@ -30,12 +30,26 @@ angular.module("http_rest_myth")
     				currentHP: 10,
     				maxHP: 10,
     				items: {
-    					inventory: [],
+    					potions: {
+    						health4: 0,
+    						health6: 0,
+    						antidote: 0,
+    						curse: 0,
+    						focus: 0,
+    						threat: 0
+    					},
     					primary : null,
     					secondary: null,
     					armor: null,
     					helm: null,
     					accessory: null
+    				},
+    				statusEffects: {
+    					poison: false,
+    					cursed: 0,
+    					frozen: 0,
+    					capture: 0,
+    					prone: false
     				}
     			},
     			monsterCounters: []

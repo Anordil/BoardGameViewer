@@ -17,6 +17,11 @@
 .before20 { margin-left:20px;}
 
 
+
+.no-padding-right {
+	padding-right: 0;
+}
+
 .vertical-align {
     display: flex;
     align-items: center;
