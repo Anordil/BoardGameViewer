@@ -1,0 +1,128 @@
+  <!-- Active Status effects -->
+  <div class="row col-md-12 top7" >
+    <div class="col-md-1 vertical-align no-padding-right" ng-show="ctrl.currentGame.data.player.statusEffects.poison" 
+    ng-dblclick="ctrl.clearEffect('poison')">
+      <img src="../../img/herosheet/poison.png" width="30px" tooltip="-1 HP/turn" />
+      <span class="value before5">{{ctrl.currentGame.data.player.statusEffects.poison || '0'}}</span>
+    </div>
+    <div class="col-md-1 vertical-align no-padding-right" ng-show="ctrl.currentGame.data.player.statusEffects.prone" 
+    ng-dblclick="ctrl.clearEffect('prone')">
+      <img src="../../img/herosheet/prone.png" width="30px" tooltip="Cannot act this Hero Cycle" />
+      <span class="value before5"   >{{ctrl.currentGame.data.player.statusEffects.prone || '0'}}</span>
+    </div>
+    <div class="col-md-1 vertical-align no-padding-right" ng-show="ctrl.currentGame.data.player.statusEffects.cursed" 
+    ng-dblclick="ctrl.clearEffect('cursed')"> 
+     <img src="../../img/herosheet/cursed.png" width="30px" tooltip="Hand size reduced by X" />
+     <span class="value before5"    >{{ctrl.currentGame.data.player.statusEffects.cursed || '0'}}</span>
+    </div>
+    <div class="col-md-1 vertical-align no-padding-right" ng-show="ctrl.currentGame.data.player.statusEffects.capture" 
+    ng-dblclick="ctrl.clearEffect('capture')">
+      <img src="../../img/herosheet/capture.png"  width="30px" tooltip="Discard X cards to play" />
+      <span class="value before5"   >{{ctrl.currentGame.data.player.statusEffects.capture || '0'}}</span>
+    </div>
+    <div class="col-md-1 vertical-align no-padding-right" ng-show="ctrl.currentGame.data.player.statusEffects.frozen" 
+    ng-dblclick="ctrl.clearEffect('frozen')">
+      <img src="../../img/herosheet/frozen.png" width="30px" tooltip="-X action spaces" />
+      <span class="value before5"   >{{ctrl.currentGame.data.player.statusEffects.frozen || '0'}}</span>
+    </div>
+  </div>
+  
+<!-- Potions in inventory -->
+<div class="row col-md-12 top7" >
+  <div class="col-md-1  vertical-align no-padding-right"
+    ng-show="ctrl.currentGame.data.player.items.potions.health4" ng-dblclick="ctrl.drinkPotion('health4')">
+    <img src="../../img/inventory/health4.png"
+      width="30px" tooltip="Heal 4HP" /> <span class="value before5"
+      >{{ctrl.currentGame.data.player.items.potions.health4
+      || '0'}}</span>
+
+  </div>
+  <div class="col-md-1 vertical-align no-padding-right"
+    ng-show="ctrl.currentGame.data.player.items.potions.health6" ng-dblclick="ctrl.drinkPotion('health6')">
+    <img src="../../img/inventory/health6.png" 
+      width="30px" tooltip="Heal 6HP" /> <span class="value before5"
+      >{{ctrl.currentGame.data.player.items.potions.health6
+      || '0'}}</span>
+
+  </div>
+  <div class="col-md-1 vertical-align no-padding-right"
+    ng-show="ctrl.currentGame.data.player.items.potions.antidote" ng-dblclick="ctrl.drinkPotion('antidote')">
+    <img src="../../img/inventory/antidote.png"
+       width="30px" tooltip="Cures poison" /> <span
+      class="value before5" >{{ctrl.currentGame.data.player.items.potions.antidote
+      || '0'}}</span>
+
+  </div>
+  <div class="col-md-1 vertical-align no-padding-right"
+    ng-show="ctrl.currentGame.data.player.items.potions.curse" ng-dblclick="ctrl.drinkPotion('curse')">
+    <img src="../../img/inventory/anti-curse.png"
+       width="30px"
+      tooltip="Cures Curse, hand size +1 for 1 HC" /> <span
+      class="value before5" >{{ctrl.currentGame.data.player.items.potions.curse
+      || '0'}}</span>
+
+  </div>
+  <div class="col-md-1 vertical-align no-padding-right"
+    ng-show="ctrl.currentGame.data.player.items.potions.focus" ng-dblclick="ctrl.drinkPotion('focus')">
+    <img src="../../img/inventory/focus.png" 
+      width="30px" tooltip="+3 FD for 1 HC" /> <span class="value before5"
+      >{{ctrl.currentGame.data.player.items.potions.focus
+      || '0'}}</span>
+
+  </div>
+  <div class="col-md-1 vertical-align no-padding-right"
+    ng-show="ctrl.currentGame.data.player.items.potions.threat" ng-dblclick="ctrl.drinkPotion('threat')">
+    <img src="../../img/inventory/threat-potion.png"
+       width="30px" tooltip="Threat -3" /> <span
+      class="value before5" >{{ctrl.currentGame.data.player.items.potions.threat
+      || '0'}}</span>
+
+  </div>
+</div>
+
+  
+  
+  <!-- Add status or potions -->
+  <div class="row col-md-12" >
+    <span class="value col-md-4" tooltip="Click to add" ng-click="ctrl.togglePotionsAndEffects()">Add alterations or potions
+       <span class="glyphicon glyphicon-collapse-up " ng-show="ctrl.addElement"></span>
+      <span class="glyphicon glyphicon-collapse-down" ng-hide="ctrl.addElement"></span>
+    </span>
+  </div>
+  
+  
+  <div class="row col-md-12 top7" ng-show="ctrl.addElement">
+    <div class="col-md-1 vertical-align no-padding-right" ng-click="ctrl.addStatusEffect('poison')">
+      <img src="../../img/herosheet/poison.png" width="30px" tooltip="Poison" />
+    </div>
+    <div class="col-md-1 vertical-align no-padding-right" ng-click="ctrl.addStatusEffect('prone')">
+      <img src="../../img/herosheet/prone.png" width="30px" tooltip="Prone" />
+    </div>
+    <div class="col-md-1 vertical-align no-padding-right" ng-click="ctrl.addStatusEffect('cursed')"> 
+     <img src="../../img/herosheet/cursed.png" width="30px" tooltip="Cursed X" />
+    </div>
+    <div class="col-md-1 vertical-align no-padding-right" ng-click="ctrl.addStatusEffect('capture')">
+      <img src="../../img/herosheet/capture.png"  width="30px" tooltip="Capture X" />
+    </div>
+    <div class="col-md-1 vertical-align no-padding-right" ng-click="ctrl.addStatusEffect('frozen')">
+      <img src="../../img/herosheet/frozen.png" width="30px" tooltip="frozen X" />
+    </div>
+    <div class="col-md-1  col-md-offset-1 vertical-align no-padding-right">
+      <img src="../../img/inventory/health4.png" ng-click="ctrl.addPotion('health4')" width="30px" tooltip="Heal 4HP" />
+    </div>
+    <div class="col-md-1 vertical-align no-padding-right">
+      <img src="../../img/inventory/health6.png" ng-click="ctrl.addPotion('health6')" width="30px" tooltip="Heal 6HP" />
+    </div>
+    <div class="col-md-1 vertical-align no-padding-right">
+      <img src="../../img/inventory/antidote.png" ng-click="ctrl.addPotion('antidote')" width="30px" tooltip="Cures poison" />
+    </div>
+    <div class="col-md-1 vertical-align no-padding-right">
+      <img src="../../img/inventory/anti-curse.png" ng-click="ctrl.addPotion('curse')" width="30px" tooltip="Cures Curse, hand size +1 for 1 HC" />
+    </div>
+    <div class="col-md-1 vertical-align no-padding-right">
+      <img src="../../img/inventory/focus.png" ng-click="ctrl.addPotion('focus')" width="30px" tooltip="+3 FD for 1 HC" />
+    </div>
+    <div class="col-md-1 vertical-align no-padding-right">
+      <img src="../../img/inventory/threat-potion.png" ng-click="ctrl.addPotion('threat')" width="30px" tooltip="Threat -3" />
+    </div>
+  </div>
