@@ -20,6 +20,11 @@
 
 .no-padding-right {
 	padding-right: 0;
+	margin-right:0px;
+}
+.no-padding-left {
+  padding-left: 0;
+  margin-left:0px;
 }
 
 .vertical-align {
@@ -35,4 +40,8 @@
 }
 .value {
 	font-size: 20px;
+}
+
+.header-bg {
+	background-color: rgba(120, 70, 0, 0.5);
 }

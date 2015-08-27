@@ -14,10 +14,7 @@ angular.module("http_rest_myth")
     this.itemList = {};
     this.monsterList = [];
     
-    this.addElement = {
-    		potions: false,
-    		status: false
-    }
+    this.addElement = false;
 
     this.currentGame = currentGame;
     
@@ -118,6 +115,14 @@ angular.module("http_rest_myth")
     	  player: this.currentGame.data.player
     	});   	
     };
+    this.clearEffect = function(iType) {
+    	this.currentGame.data.player.statusEffects[iType] = 0;
+    	
+    	SOCKET.emit('event', {
+    	  type: "update_player",
+    	  player: this.currentGame.data.player
+    	});      	
+    };
     
     
     this.healPlayer = function(amount) {
@@ -127,17 +132,8 @@ angular.module("http_rest_myth")
     	this.currentGame.data.player.threat = Math.max(0, this.currentGame.data.player.threat -3);
     };
     
-    this.togglePotions = function() {
-    	this.addElement.potions = !this.addElement.potions;
-    	if (this.addElement.potions) {
-    		this.addElement.status = false;
-    	}
-    };
-    this.toggleStatus = function() {
-    	this.addElement.status = !this.addElement.status;
-    	if (this.addElement.status) {
-    		this.addElement.potions = false;
-    	}
+    this.togglePotionsAndEffects = function() {
+    	this.addElement = !this.addElement;
     };
     
     this.fetchItemList = function() {

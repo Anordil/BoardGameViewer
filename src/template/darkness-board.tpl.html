@@ -1,17 +1,17 @@
 
-<div class="row col-md-12 vertical-align">
+<div class="row vertical-align header-bg">
 	<div class="col-md-4"><span class="title">Darkness</span></div>
 	<div class="col-md-8"><ap-counter current="ctrl.currentGame.data.ap" /></div>
 </div>
 
-<div class="row col-md-12" ng-show="ctrl.currentGame.displayedMonster != 'Unknown'">
+<div class="row" ng-show="ctrl.currentGame.displayedMonster != 'Unknown'" style="text-align:right;">
 
-	<span ng-switch="ctrl.currentGame.displayedMonster == 'Lair'">
+	<span ng-switch="ctrl.currentGame.displayedMonster == 'Lair'" >
 		<span ng-switch-when="true">
 			<img src="{{ctrl.currentGame.displayedMonster | toMonsterImage}}"  height="200px;" />
 		</span>
 		<span ng-switch-when="false">
-			<img src="{{ctrl.currentGame.displayedMonster | toMonsterImage}}"  height="450px;" />
+			<img src="{{ctrl.currentGame.displayedMonster | toMonsterImage}}"  width="100%;" />
 		</span>
 	</span>
 </div>
